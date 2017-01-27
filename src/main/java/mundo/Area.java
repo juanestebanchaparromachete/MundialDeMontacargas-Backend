@@ -2,27 +2,44 @@ package mundo;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.bson.types.ObjectId;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Area {
 
+	
+	@XmlElement(name = "id")
+	private ObjectId id;
+	
 	/**
 	 * sucursal del cliente  a la cual se encuentra asociada el area
 	 */
+	@XmlElement(name = "sucursal")
 	private Sucursal sucursal;
 	
 	/**
 	 * empleado encargado de los activos fijos que se encuentren en el area 
 	 */
+	@XmlElement(name = "empleadoEncargado")
 	private Usuario empleadoEncargado;
 	
 	/**
 	 * 
 	 */
+	@XmlElement(name = "remision")
 	private Remision remision; // revisar este atributo no lo considero necesario 
 	
 	/**
-	 * activos fijos que se encuentran en el area
+	 * activos fijos que se encuentran en el area se encuentra el Id del activo fijo
 	 */
-	private List<ActivoFijo> activosFijos;
+	@XmlElement(name = "activosFijos")
+	private List<String> activosFijos;
 
 	/**
 	 * @param sucursal
@@ -30,7 +47,7 @@ public class Area {
 	 * @param remision
 	 * @param activosFijos
 	 */
-	public Area(Sucursal sucursal, Usuario empleadoEncargado, Remision remision, List<ActivoFijo> activosFijos) {
+	public Area(Sucursal sucursal, Usuario empleadoEncargado, Remision remision, List<String> activosFijos) {
 		super();
 		this.sucursal = sucursal;
 		this.empleadoEncargado = empleadoEncargado;
@@ -83,15 +100,28 @@ public class Area {
 	/**
 	 * @return
 	 */
-	public List<ActivoFijo> getActivosFijos() {
+	public List<String> getActivosFijos() {
 		return activosFijos;
 	}
 
 	/**
 	 * @param activosFijos
 	 */
-	public void setActivosFijos(List<ActivoFijo> activosFijos) {
+	public void setActivosFijos(List<String> activosFijos) {
 		this.activosFijos = activosFijos;
 	}
 
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 }

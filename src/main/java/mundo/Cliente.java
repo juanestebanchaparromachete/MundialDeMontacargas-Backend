@@ -3,82 +3,111 @@ package mundo;
 import java.awt.Image;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.bson.types.ObjectId;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
 
+	
+	@XmlElement(name = "id")
+	private ObjectId id;
+	
+	
 	/**
 	 * nombre o razon social del cliente.
 	 */
+	@XmlElement(name = "nombreORazonSocial")
 	private String nombreORazonSocial;
 
 	/**
 	 * numero de identificacion tributario.
 	 */
+	@XmlElement(name = "nit")
 	private int nit;
 
 	/**
 	 * pais dond ese encuentra la sucursal principal del cliente.
 	 */
+	@XmlElement(name = "pais")
 	private String pais;
 
 	/**
 	 * dirreccion asociada a la sede principal del cliente .
 	 */
+	@XmlElement(name = "direccionSedePrincipal")
 	private String dirreccionSedePrincipal;
 
 	/**
 	 * estado o provincia al cual pertenece el  cliente en la ciudad.
 	 */
-	private String estadoOrovincia;
+	@XmlElement(name = "estadoOProvincia")
+	private String estadoOprovincia;
 
 	/**
 	 * ciudad a la cual pertenece el cliente.
 	 */
+	@XmlElement(name = "ciudad")
 	private String ciudad;
 
 	/**
 	 * codigo postal de la ciudad a la que pertenece el cliente .
 	 */
+	@XmlElement(name = "codigoPostal")
 	private int codigoPostal;
 
 	/**
 	 * telefono de la sede principal del cliente.
 	 */
+	@XmlElement(name = "telefono")
 	private int telefono;
 
 	/**
 	 * correo de contacto del cliente.
 	 */
+	@XmlElement(name = "correo")
 	private String correo;
 
 	/**
 	 * actividad economica que desempeña la compañia.
 	 */
+	@XmlElement(name = "actividadEconomica")
 	private String actividadEconomica;
 
 	/**
 	 * logotipo de la compañia.
 	 */
+	@XmlElement(name = "logotipo")
 	private Image logotipo;
 
 	/**
 	 * persona asignada por el cliente a la compañia para contacto.
 	 */
+	@XmlElement(name = "contactoAsociado")
 	private String contactoAsociado;
 
 	/**
-	 * sucursales que tiene al cliente.
+	 * id de las sucursales que tiene al cliente.
 	 */
-	private List<Sucursal> sucursales;
+	@XmlElement(name = "sucursales")
+	private List<String> sucursales;
 
 	/**
-	 * facturas de venta asociadas al cliente.
+	 * id de las facturas de venta asociadas al cliente.
 	 */
-	private List<FacturaDeVenta> facturasDeVenta;
+	@XmlElement(name = "facturaDeVenta")
+	private List<String> facturasDeVenta;
 
 	/**
-	 * activos fijos que se encuentran alquilados al cliente.
+	 * id de los activos fijos que se encuentran alquilados al cliente.
 	 */
-	private List<ActivoFijo> activosFijos;
+	@XmlElement(name = "activosFijos")
+	private List<String> activosFijos;
 
 	/**
 	 * @param nombreORazonSocial
@@ -99,14 +128,14 @@ public class Cliente {
 	 */
 	public Cliente(String nombreORazonSocial, int nit, String pais, String dirreccionSedePrincipal,
 			String estadoOrovincia, String ciudad, int codigoPostal, int telefono, String correo,
-			String actividadEconomica, Image logotipo, String contactoAsociado, List<Sucursal> sucursales,
-			List<FacturaDeVenta> facturasDeVenta, List<ActivoFijo> activosFijos) {
+			String actividadEconomica, Image logotipo, String contactoAsociado, List<String> sucursales,
+			List<String> facturasDeVenta, List<String> activosFijos) {
 		super();
 		this.nombreORazonSocial = nombreORazonSocial;
 		this.nit = nit;
 		this.pais = pais;
 		this.dirreccionSedePrincipal = dirreccionSedePrincipal;
-		this.estadoOrovincia = estadoOrovincia;
+		this.estadoOprovincia = estadoOrovincia;
 		this.ciudad = ciudad;
 		this.codigoPostal = codigoPostal;
 		this.telefono = telefono;
@@ -179,14 +208,14 @@ public class Cliente {
 	 * @return
 	 */
 	public String getEstadoOrovincia() {
-		return estadoOrovincia;
+		return estadoOprovincia;
 	}
 
 	/**
 	 * @param estadoOrovincia
 	 */
 	public void setEstadoOrovincia(String estadoOrovincia) {
-		this.estadoOrovincia = estadoOrovincia;
+		this.estadoOprovincia = estadoOrovincia;
 	}
 
 	/**
@@ -290,43 +319,56 @@ public class Cliente {
 	/**
 	 * @return
 	 */
-	public List<Sucursal> getSucursales() {
+	public List<String> getSucursales() {
 		return sucursales;
 	}
 
 	/**
 	 * @param sucursales
 	 */
-	public void setSucursales(List<Sucursal> sucursales) {
+	public void setSucursales(List<String> sucursales) {
 		this.sucursales = sucursales;
 	}
 
 	/**
 	 * @return
 	 */
-	public List<FacturaDeVenta> getFacturasDeVenta() {
+	public List<String> getFacturasDeVenta() {
 		return facturasDeVenta;
 	}
 
 	/**
 	 * @param facturasDeVenta
 	 */
-	public void setFacturasDeVenta(List<FacturaDeVenta> facturasDeVenta) {
+	public void setFacturasDeVenta(List<String> facturasDeVenta) {
 		this.facturasDeVenta = facturasDeVenta;
 	}
 
 	/**
 	 * @return
 	 */
-	public List<ActivoFijo> getActivosFijos() {
+	public List<String> getActivosFijos() {
 		return activosFijos;
 	}
 
 	/**
 	 * @param activosFijos
 	 */
-	public void setActivosFijos(List<ActivoFijo> activosFijos) {
+	public void setActivosFijos(List<String> activosFijos) {
 		this.activosFijos = activosFijos;
 	}
 
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 }

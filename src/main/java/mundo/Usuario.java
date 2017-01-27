@@ -4,106 +4,139 @@ import java.awt.Image;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.bson.types.ObjectId;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Usuario {
 
+	
+	@XmlElement(name = "id")
+	private ObjectId id;
+	
 	/**
 	 * login del usuario
 	 */
+	@XmlElement(name = "login")
 	private String login;
 
 	/**
 	 * contraseña del usuario
 	 */
+	@XmlElement(name = "contraseña")
 	private String contrasena;
 
 	/**
 	 * rol que se le asigno al usuario en la compañia
 	 */
+	@XmlElement(name = "rol")
 	private String rol;
 
 	/**
 	 * nombre del usuario
 	 */
+	@XmlElement(name = "nombre")
 	private String nombre;
 
 	/**
 	 * edad del usuario
 	 */
+	@XmlElement(name = "edad")
 	private int edad;
 
 	/**
 	 * fecha de nacimiento del usuario
 	 */
+	@XmlElement(name = "fechaDeNacimiento")
 	private Date fechaDeNacimiento;
 
 	/**
 	 * correo del usuario
 	 */
+	@XmlElement(name = "correo")
 	private String correo;
 
 	/**
 	 * cedula del usuario
 	 */
+	@XmlElement(name = "cedula")
 	private int cedula;
 
 	/**
 	 * direccion de residencia del usuario
 	 */
+	@XmlElement(name = "direccionDeResidencia")
 	private String direccionDeResidencia;
 
 	/**
 	 * telefono fijo del usuario
 	 */
+	@XmlElement(name = "telefonoFijo")
 	private int telefonoFijo;
 
 	/**
 	 * celular del usuario
 	 */
+	@XmlElement(name = "celular")
 	private int celular;
 
 	/**
 	 * numero de Arp del usuario
 	 */
+	@XmlElement(name = "numeroArp")
 	private int numeroArp;
 
 	/**
 	 * cargo del usuario
 	 */
+	@XmlElement(name = "cargo")
 	private String cargo;
 
 	/**
 	 * foto del usuario
 	 */
+	@XmlElement(name = "foto")
 	private Image foto;
 
 	/**
 	 * lista de las ordenes de compra que el usuario ha realizado
 	 */
-	private List<OrdenDeCompra> ordenesDeCompra;
+	@XmlElement(name = "ordenesDeCompra")
+	private List<String> ordenesDeCompra;
 
 	/**
 	 * lista de las devoluciones que el usuario ha realizado
 	 */
-	private List<Devolucion> devoluciones;
+	@XmlElement(name = "devoluciones")
+	private List<String> devoluciones;
 
 	/**
 	 * lista de las facturas de compra que el usuario ha realizado
 	 */
-	private List<FacturaDeCompra> facturasDeCompra;
+	@XmlElement(name = "facturasDeCompra")
+	private List<String> facturasDeCompra;
 
 	/**
 	 * area asignada al usuario de mantenimiento para mantenimiento preventivo
 	 */
+	@XmlElement(name = "areaAsignada")
 	private Area areaAsignada;
 
 	/**
 	 * lista de las remisiones que el usuario ha realizado
 	 */
-	private List<Remision> salidasDeAlmacen;
+	@XmlElement(name = "salidaDeAlmacen")
+	private List<String> salidasDeAlmacen;
 
 	/**
 	 * lista de mantenimientos preventivos que el usuario ha realizado
 	 */
+	@XmlElement(name = "mantenimientosPreventivos")
 	private List<MantenimientoPreventivo> mantenimientosPreventivos;
 
 	/**
@@ -130,8 +163,8 @@ public class Usuario {
 	 */
 	public Usuario(String login, String contrasena, String rol, String nombre, int edad, Date fechaDeNacimiento,
 			String correo, int cedula, String direccionDeResidencia, int telefonoFijo, int celular, int numeroArp,
-			String cargo, Image foto, List<OrdenDeCompra> ordenesDeCompra, List<Devolucion> devoluciones,
-			List<FacturaDeCompra> facturasDeCompra, Area areaAsignada, List<Remision> salidasDeAlmacen,
+			String cargo, Image foto, List<String> ordenesDeCompra, List<String> devoluciones,
+			List<String> facturasDeCompra, Area areaAsignada, List<String> salidasDeAlmacen,
 			List<MantenimientoPreventivo> mantenimientosPreventivos) {
 		super();
 		this.login = login;
@@ -156,6 +189,19 @@ public class Usuario {
 		this.mantenimientosPreventivos = mantenimientosPreventivos;
 	}
 
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 	/**
 	 * @return
 	 */
@@ -355,42 +401,42 @@ public class Usuario {
 	/**
 	 * @return
 	 */
-	public List<OrdenDeCompra> getOrdenesDeCompra() {
+	public List<String> getOrdenesDeCompra() {
 		return ordenesDeCompra;
 	}
 
 	/**
 	 * @param ordenesDeCompra
 	 */
-	public void setOrdenesDeCompra(List<OrdenDeCompra> ordenesDeCompra) {
+	public void setOrdenesDeCompra(List<String> ordenesDeCompra) {
 		this.ordenesDeCompra = ordenesDeCompra;
 	}
 
 	/**
 	 * @return
 	 */
-	public List<Devolucion> getDevoluciones() {
+	public List<String> getDevoluciones() {
 		return devoluciones;
 	}
 
 	/**
 	 * @param devoluciones
 	 */
-	public void setDevoluciones(List<Devolucion> devoluciones) {
+	public void setDevoluciones(List<String> devoluciones) {
 		this.devoluciones = devoluciones;
 	}
 
 	/**
 	 * @return
 	 */
-	public List<FacturaDeCompra> getFacturasDeCompra() {
+	public List<String> getFacturasDeCompra() {
 		return facturasDeCompra;
 	}
 
 	/**
 	 * @param facturasDeCompra
 	 */
-	public void setFacturasDeCompra(List<FacturaDeCompra> facturasDeCompra) {
+	public void setFacturasDeCompra(List<String> facturasDeCompra) {
 		this.facturasDeCompra = facturasDeCompra;
 	}
 
@@ -411,14 +457,14 @@ public class Usuario {
 	/**
 	 * @return
 	 */
-	public List<Remision> getSalidasDeAlmacen() {
+	public List<String> getSalidasDeAlmacen() {
 		return salidasDeAlmacen;
 	}
 
 	/**
 	 * @param salidasDeAlmacen
 	 */
-	public void setSalidasDeAlmacen(List<Remision> salidasDeAlmacen) {
+	public void setSalidasDeAlmacen(List<String> salidasDeAlmacen) {
 		this.salidasDeAlmacen = salidasDeAlmacen;
 	}
 
@@ -436,4 +482,5 @@ public class Usuario {
 		this.mantenimientosPreventivos = mantenimientosPreventivos;
 	}
 
+	
 }

@@ -2,16 +2,31 @@ package mundo;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.bson.types.ObjectId;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Sucursal {
 
+
+	@XmlElement(name = "id")
+	private ObjectId id;
+	
 	/**
 	 * lista de las areas que pertenecen a la sucursal
 	 */
+	@XmlElement(name = "areas")
 	private List<Area> areas;
 
 	/**
 	 * cliente al cual le pertenece la sucursal
 	 */
+	@XmlElement(name = "cliente")
 	private Cliente cliente;
 
 	/**
@@ -52,4 +67,17 @@ public class Sucursal {
 		this.cliente = cliente;
 	}
 
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 }

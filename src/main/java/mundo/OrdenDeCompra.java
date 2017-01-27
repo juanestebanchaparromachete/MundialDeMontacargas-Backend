@@ -3,72 +3,97 @@ package mundo;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.bson.types.ObjectId;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class OrdenDeCompra {
 
+	@XmlElement(name = "id")
+	private ObjectId id;
+	
 	/**
 	 *  numero asignado a la orden de compra por la compañia
 	 */
+	@XmlElement(name = "numeroOrdenDeCompra")
 	private int numeroOrdenDeCompra;
 
 	/**
 	 * 	empleado que realiza la orden de compra
 	 */
+	@XmlElement(name = "empleadoEncargado")
 	private Usuario empleadoEncargado;
 
 	/**
 	 * fecha en la que se realiza la orden de compra
 	 */
+	@XmlElement(name = "fecha")
 	private Date fecha;
 
 	/**
 	 * proveedor que se le realiza la orden de compra
 	 */
+	@XmlElement(name = "proveedor")
 	private Proveedor proveedor;
 
 	/**
 	 * forma de pago en la que se realiza el pago
 	 */
+	@XmlElement(name = "formaDePago")
 	private String formaDePago;
 
 	/**
 	 * mondea en la que se realiza la factura
 	 */
+	@XmlElement(name = "moneda")
 	private String moneda;
 
 	/**
-	 * determina si es una importacio o una compra nacional
+	 * determina si es una importacio o una compra nacional (no 0 y si es 1 ) 
 	 */
-	private boolean importacion;
+	@XmlElement(name = "importacion")
+	private int importacion;
 
 	/**
 	 * valor antes de iva de la factura
 	 */
-	private double subtotal;
+	@XmlElement(name = "subTotal")
+	private double subTotal;
 
 	/**
 	 * iva asociado a la factura
 	 */
+	@XmlElement(name = "iva")
 	private double iva;
 
 	/**
 	 * valor total de la factura iva incluido
 	 */
+	@XmlElement(name = "total")
 	private double total;
 
 	/**
 	 * catidad de items totales
 	 */
+	@XmlElement(name = "cantidadItems")
 	private int cantidadItems;
 
 	/**
 	 * lista de items asociados a la factura
 	 */
-	private List<Item> items;
+	@XmlElement(name = "items")
+	private List<String> items;
 
 	/**
 	 * lista de facturas de compra asociadas a la orden de compra
 	 */
-	private List<FacturaDeCompra> facturasDeCompra;
+	@XmlElement(name = "facturasDeCompra")
+	private List<String> facturasDeCompra;
 
 	/**
 	 * @param numeroOrdenDeCompra
@@ -86,8 +111,8 @@ public class OrdenDeCompra {
 	 * @param facturasDeCompra
 	 */
 	public OrdenDeCompra(int numeroOrdenDeCompra, Usuario empleadoEncargado, Date fecha, Proveedor proveedor,
-			String formaDePago, String moneda, boolean importacion, double subtotal, double iva, double total,
-			int cantidadItems, List<Item> items, List<FacturaDeCompra> facturasDeCompra) {
+			String formaDePago, String moneda, int importacion, double subtotal, double iva, double total,
+			int cantidadItems, List<String> items, List<String> facturasDeCompra) {
 		super();
 		this.numeroOrdenDeCompra = numeroOrdenDeCompra;
 		this.empleadoEncargado = empleadoEncargado;
@@ -96,7 +121,7 @@ public class OrdenDeCompra {
 		this.formaDePago = formaDePago;
 		this.moneda = moneda;
 		this.importacion = importacion;
-		this.subtotal = subtotal;
+		this.subTotal = subtotal;
 		this.iva = iva;
 		this.total = total;
 		this.cantidadItems = cantidadItems;
@@ -191,14 +216,14 @@ public class OrdenDeCompra {
 	/**
 	 * @return
 	 */
-	public boolean isImportacion() {
+	public int isImportacion() {
 		return importacion;
 	}
 
 	/**
 	 * @param importacion
 	 */
-	public void setImportacion(boolean importacion) {
+	public void setImportacion(int importacion) {
 		this.importacion = importacion;
 	}
 
@@ -206,14 +231,14 @@ public class OrdenDeCompra {
 	 * @return
 	 */
 	public double getSubtotal() {
-		return subtotal;
+		return subTotal;
 	}
 
 	/**
 	 * @param subtotal
 	 */
 	public void setSubtotal(double subtotal) {
-		this.subtotal = subtotal;
+		this.subTotal = subtotal;
 	}
 
 	/**
@@ -261,29 +286,42 @@ public class OrdenDeCompra {
 	/**
 	 * @return
 	 */
-	public List<Item> getItems() {
+	public List<String> getItems() {
 		return items;
 	}
 
 	/**
 	 * @param items
 	 */
-	public void setItems(List<Item> items) {
+	public void setItems(List<String> items) {
 		this.items = items;
 	}
 
 	/**
 	 * @return
 	 */
-	public List<FacturaDeCompra> getFacturasDeCompra() {
+	public List<String> getFacturasDeCompra() {
 		return facturasDeCompra;
 	}
 
 	/**
 	 * @param facturasDeCompra
 	 */
-	public void setFacturasDeCompra(List<FacturaDeCompra> facturasDeCompra) {
+	public void setFacturasDeCompra(List<String> facturasDeCompra) {
 		this.facturasDeCompra = facturasDeCompra;
 	}
 
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 }

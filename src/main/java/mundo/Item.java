@@ -1,45 +1,65 @@
 package mundo;
 
-public class Item {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import org.bson.types.ObjectId;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Item {
+	
+	@XmlElement(name = "id")
+	private ObjectId id;
+	
 	/**
 	 * unidades del repuesto asociado
 	 */
+	@XmlElement(name = "cantidad")
 	private int cantidad;
 
 	/**
 	 * valor total del item cantidades*valorUnitario
 	 */
-	private double valortotal;
+	@XmlElement(name = "valorTotal")
+	private double valorTotal;
 
 	/**
 	 * Repuesto asociado al item
 	 */
+	@XmlElement(name = "repuesto")
 	private Repuesto repuesto;
 
 	/**
 	 * remision a la que se encuentra asociado el item
 	 */
+	@XmlElement(name = "salidaDeAlmacen")
 	private Remision salidaDelAlmacen; 
 
 	/**
 	 * factura de venta  a la cual se encuentra asociado el item
 	 */
+	@XmlElement(name = "facturaDeVenta")
 	private FacturaDeVenta facturaDeVenta;
 
 	/**
 	 * factura de compra a la cual se encuentra asociado el item
 	 */
+	@XmlElement(name = "facturaDeCompra")
 	private FacturaDeCompra facturaDeCompra;
 
 	/**
 	 * devolucion a la cual se encuentra asociada el item
 	 */
+	@XmlElement(name = "devolucion")
 	private Devolucion devolucion;
 
 	/**
 	 * orden de compra a la cual se encuentra asociada el item
 	 */
+	@XmlElement(name = "ordenDeCompra")
 	private OrdenDeCompra ordenDeCompra;
 
 	/**
@@ -57,7 +77,7 @@ public class Item {
 			OrdenDeCompra ordenDeCompra) {
 		super();
 		this.cantidad = cantidad;
-		this.valortotal = valortotal;
+		this.valorTotal = valortotal;
 		this.repuesto = repuesto;
 		this.salidaDelAlmacen = salidaDelAlmacen;
 		this.facturaDeVenta = facturaDeVenta;
@@ -84,14 +104,14 @@ public class Item {
 	 * @return
 	 */
 	public double getValortotal() {
-		return valortotal;
+		return valorTotal;
 	}
 
 	/**
 	 * @param valortotal
 	 */
 	public void setValortotal(double valortotal) {
-		this.valortotal = valortotal;
+		this.valorTotal = valortotal;
 	}
 
 	/**
@@ -177,5 +197,17 @@ public class Item {
 	public void setOrdenDeCompra(OrdenDeCompra ordenDeCompra) {
 		this.ordenDeCompra = ordenDeCompra;
 	}
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
 
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 }

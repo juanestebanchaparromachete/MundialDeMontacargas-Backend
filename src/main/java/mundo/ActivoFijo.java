@@ -3,117 +3,170 @@ package mundo;
 import java.awt.Image;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.bson.types.ObjectId;
+
 /**
  * @author juanestebanchaparromachete
  *
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ActivoFijo {
 
+	@XmlElement(name = "id")
+	private ObjectId id;
 	/**
-	 * numero que se le asigna al activo fijo para la identificacion en la empresa
+	 * numero que se le asigna al activo fijo para la identificacion en la
+	 * empresa
 	 */
+	@XmlElement(name = "numeroInterno")
 	private int numeroInterno;
 
 	/**
-	 * tipo de montacargas a cual pertenece 
+	 * tipo de montacargas a cual pertenece
 	 */
+	@XmlElement(name = "tipo")
 	private String tipo;
 
 	/**
 	 * marca del montacargas
 	 */
+	@XmlElement(name = "marca")
 	private String marca;
 
 	/**
 	 * año en el que fue ensamblada la montacargas
 	 */
+	@XmlElement(name = "modelo")
 	private String modelo;
 
 	/**
 	 * identificador unico que se le asigna a una montacargas
 	 */
+	@XmlElement(name = "serial")
 	private String serial;
 
 	/**
 	 * capacidad o fuerza que puede realizar el montacargas
 	 */
+	@XmlElement(name = "capacidad")
 	private double capacidad;
 
 	/**
 	 * numero asociado al motor de la montacargas
 	 */
+	@XmlElement(name = "numeroMotor")
 	private int numeroMotor;
 
 	/**
 	 * altura del mastil recogido de la montacargas
 	 */
+	@XmlElement(name = "alturaMastilRecogido")
 	private double alturaMastilRecogido;
 
 	/**
 	 * altura del mastil extendido de la montacargas
 	 */
+	@XmlElement(name = "alturaMastilExtendido")
 	private double alturaMastilExtendido;
 
 	/**
 	 * numero de secciones que contiene el mastil
 	 */
+	@XmlElement(name = "numeroSeccionesMastil")
 	private int numeroSeccionesMastil;
 
 	/**
 	 * tipo de bateria que maneja el montacargas
 	 */
+	@XmlElement(name = "tipoBateria")
 	private String tipoBateria;
 
 	/**
 	 * fecha en la que se adquirio el montacargas
 	 */
+	@XmlElement(name = "fechaCompra")
 	private Date fechaCompra;
 
 	/**
 	 * factura de la compra del montacargas
 	 */
+	@XmlElement(name = "facturaCompra")
 	private Image facturaCompra;
 
 	/**
 	 * valor por el cual fue adquirida la montacargas
 	 */
+	@XmlElement(name = "valorCompra")
 	private int valorCompra;
 
 	/**
 	 * proveedor con el cual se adquirio la montacargas
 	 */
+	@XmlElement(name = "proveedor")
 	private Proveedor proveedor;
 
 	/**
 	 * foto de la montacargas
 	 */
+	@XmlElement(name = "fotoMontacarga")
 	private Image fotoMontacarga;
 
 	/**
 	 * manifiesto de importacion de la montacargas
 	 */
+	@XmlElement(name = "manifiestoDeImportacion")
 	private Image manifiestoDeImportacion;
 
 	/**
-	 * Area en sucursal de un cliente a la cual se le encuentra asignada la montacargas
+	 * Area en sucursal de un cliente a la cual se le encuentra asignada la
+	 * montacargas
 	 */
-	private Area areaAlquilerAsignada;
+	@XmlElement(name = "areaAlquilerAsignada")
+	private String areaAlquilerAsignada;
+
+	/**
+	 * Area en sucursal de un cliente a la cual se le encuentra asignada la
+	 * montacargas
+	 */
+	@XmlElement(name = "sucursalAsignada")
+	private Sucursal sucursalAsignada;
 
 	/**
 	 * cliente al cual se le realiza el alquiler de la montacargas
 	 */
+	@XmlElement(name = "clienteAlquiler")
 	private Cliente clienteAlquiler;
 
 	/**
-	 * 
+	 * hoja de vida atributo correspondiente a toda la informacion de
+	 * mantenimientos e informes del activo fijo.
 	 */
-	private Remision salidaAlmacen;// no necesito q el activo conosca su salida
-									// revisar
+	@XmlElement(name = "hojaDeVida")
+	private HojaDeVida hojaDeVida;
 
 	/**
-	 * hoja de vida atributo correspondiente a toda la informacion de mantenimientos e informes del activo fijo.
+	 * fecha en la que se alquila el activo fijo a un cliente
 	 */
-	private HojaDeVida hojaDeVida;
+	@XmlElement(name = "fechaInicioAlquiler")
+	private Date fechaInicioAlquiler;
+
+	/**
+	 * fecha en la que setermina en alquiler del activo fijo a un cliente
+	 */
+	@XmlElement(name = "fechaFinAlquiler")
+	private Date fechaFinAlquiler;
+
+	/**
+	 * El activo fijo se encuentra disponible o no. (0 no y 1 si )
+	 */
+	@XmlElement(name = "disponible")
+	private int disponible;
 
 	/**
 	 * @param numeroInterno
@@ -135,15 +188,19 @@ public class ActivoFijo {
 	 * @param manifiestoDeImportacion
 	 * @param areaAlquilerAsignada
 	 * @param clienteAlquiler
-	 * @param salidaAlmacen
 	 * @param hojaDeVida
+	 * @param fechaInicioAlquiler
+	 * @param fechaFinAlquiler
+	 * @param disponible
 	 */
-	public ActivoFijo(int numeroInterno, String tipo, String marca, String modelo, String serial, double capacidad,
-			int numeroMotor, double alturaMastilRecogido, double alturaMastilExtendido, int numeroSeccionesMastil,
-			String tipoBateria, Date fechaCompra, Image facturaCompra, int valorCompra, Proveedor proveedor,
-			Image fotoMontacarga, Image manifiestoDeImportacion, Area areaAlquilerAsignada, Cliente clienteAlquiler,
-			Remision salidaAlmacen, HojaDeVida hojaDeVida) {
+	public ActivoFijo(ObjectId id, int numeroInterno, String tipo, String marca, String modelo, String serial,
+			double capacidad, int numeroMotor, double alturaMastilRecogido, double alturaMastilExtendido,
+			int numeroSeccionesMastil, String tipoBateria, Date fechaCompra, Image facturaCompra, int valorCompra,
+			Proveedor proveedor, Image fotoMontacarga, Image manifiestoDeImportacion, String areaAlquilerAsignada,
+			Sucursal sucursalAsignada, Cliente clienteAlquiler, HojaDeVida hojaDeVida, Date fechaInicioAlquiler,
+			Date fechaFinAlquiler, int disponible) {
 		super();
+		this.id = id;
 		this.numeroInterno = numeroInterno;
 		this.tipo = tipo;
 		this.marca = marca;
@@ -162,9 +219,12 @@ public class ActivoFijo {
 		this.fotoMontacarga = fotoMontacarga;
 		this.manifiestoDeImportacion = manifiestoDeImportacion;
 		this.areaAlquilerAsignada = areaAlquilerAsignada;
+		this.sucursalAsignada = sucursalAsignada;
 		this.clienteAlquiler = clienteAlquiler;
-		this.salidaAlmacen = salidaAlmacen;
 		this.hojaDeVida = hojaDeVida;
+		this.fechaInicioAlquiler = fechaInicioAlquiler;
+		this.fechaFinAlquiler = fechaFinAlquiler;
+		this.disponible = disponible;
 	}
 
 	/**
@@ -408,14 +468,14 @@ public class ActivoFijo {
 	/**
 	 * @return
 	 */
-	public Area getAreaAlquilerAsignada() {
+	public String getAreaAlquilerAsignada() {
 		return areaAlquilerAsignada;
 	}
 
 	/**
 	 * @param areaAlquilerAsignada
 	 */
-	public void setAreaAlquilerAsignada(Area areaAlquilerAsignada) {
+	public void setAreaAlquilerAsignada(String areaAlquilerAsignada) {
 		this.areaAlquilerAsignada = areaAlquilerAsignada;
 	}
 
@@ -436,20 +496,6 @@ public class ActivoFijo {
 	/**
 	 * @return
 	 */
-	public Remision getSalidaAlmacen() {
-		return salidaAlmacen;
-	}
-
-	/**
-	 * @param salidaAlmacen
-	 */
-	public void setSalidaAlmacen(Remision salidaAlmacen) {
-		this.salidaAlmacen = salidaAlmacen;
-	}
-
-	/**
-	 * @return
-	 */
 	public HojaDeVida getHojaDeVida() {
 		return hojaDeVida;
 	}
@@ -461,4 +507,82 @@ public class ActivoFijo {
 		this.hojaDeVida = hojaDeVida;
 	}
 
+	/**
+	 * @return
+	 */
+	public Date getFechaInicioAlquiler() {
+		return fechaInicioAlquiler;
+	}
+
+	/**
+	 * @param fechaInicioAlquiler
+	 */
+	public void setFechaInicioAlquiler(Date fechaInicioAlquiler) {
+		this.fechaInicioAlquiler = fechaInicioAlquiler;
+	}
+
+	/**
+	 * @return
+	 */
+	public Date getFechaFinAlquiler() {
+		return fechaFinAlquiler;
+	}
+
+	/**
+	 * @param fechaFinAlquiler
+	 */
+	public void setFechaFinAlquiler(Date fechaFinAlquiler) {
+		this.fechaFinAlquiler = fechaFinAlquiler;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getDisponible() {
+		return disponible;
+	}
+
+	/**
+	 * @param disponible
+	 */
+	public void setDisponible(int disponible) {
+		this.disponible = disponible;
+	}
+
+	/**
+	 * @param capacidad
+	 */
+	public void setCapacidad(double capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return
+	 */
+	public Sucursal getSucursalAsignada() {
+		return sucursalAsignada;
+	}
+
+	/**
+	 * @param sucursalAsignada
+	 */
+	public void setSucursalAsignada(Sucursal sucursalAsignada) {
+		this.sucursalAsignada = sucursalAsignada;
+	}
+
+	
 }

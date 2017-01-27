@@ -3,51 +3,73 @@ package mundo;
 import java.awt.Image;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.bson.types.ObjectId;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Repuesto {
 
+
+	@XmlElement(name = "id")
+	private ObjectId id;
+	
 	/**
 	 * numero asignado al repuesto por la compañia
 	 */
+	@XmlElement(name = "numeroRepuesto")
 	private int numeroRepuesto;
 
 	/**
 	 * numero de parte con el que se identifica un repuesto en su fabricante
 	 */
+	@XmlElement(name = "numeroParteFabricante")
 	private int numeroParteFabricante;
 
 	/**
 	 * descripcion del repuesto
 	 */
+	@XmlElement(name = "descripcion")
 	private String descripcion;
 
 	/**
 	 * valor unitario del repuesto
 	 */
+	@XmlElement(name = "valorUnitario")
 	private double valorUnitario;
 
 	/**
 	 * lista d emontacargas compatibles con el repuesto
 	 */
+	@XmlElement(name = "montacargasCompatibles")
 	private List<String> montacargasCompatibles;
 
 	/**
 	 * ubicacion del del repuesto en el area de almacenamiento
 	 */
+	@XmlElement(name = "ubicacionAreaAlmacenamiento")
 	private String ubicacionAreaAlmacenamiento;
 
 	/**
 	 * imagen del repuesto
 	 */
+	@XmlElement(name = "imagen")
 	private Image imagen;
 
 	/**
 	 * clasificacion a la cual pertenece el repuesto
 	 */
+	@XmlElement(name = "clasificacion")
 	private String clasificacion;
 
 	/**
 	 * item al cual se encuentra asociado un repuesto
 	 */
+	@XmlElement(name = "item")
 	private Item item;
 
 	/**
@@ -200,6 +222,19 @@ public class Repuesto {
 	 */
 	public void setItem(Item item) {
 		this.item = item;
+	}
+	/**
+	 * @return
+	 */
+	public ObjectId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(ObjectId id) {
+		this.id = id;
 	}
 
 }
