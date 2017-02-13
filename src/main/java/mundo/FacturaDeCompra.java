@@ -128,7 +128,11 @@ public class FacturaDeCompra {
 		this.cantidadItems = cantidadItems;
 		this.items = items;
 	}
-
+	
+	public FacturaDeCompra()
+	{
+		
+	}
 	/**
 	 * @return
 	 */

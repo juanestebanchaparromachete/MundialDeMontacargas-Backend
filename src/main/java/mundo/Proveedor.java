@@ -142,6 +142,11 @@ public class Proveedor {
 		this.ordenesDecompra = ordenesDecompra;
 		this.facturasDeCompra = facturasDeCompra;
 	}
+	
+	public Proveedor()
+	{
+		
+	}
 
 	/**
 	 * @return

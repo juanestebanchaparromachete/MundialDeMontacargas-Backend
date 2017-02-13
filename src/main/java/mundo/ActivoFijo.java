@@ -102,7 +102,7 @@ public class ActivoFijo {
 	 * factura de la compra del montacargas
 	 */
 	@XmlElement(name = "facturaCompra")
-	private Image facturaCompra;
+	private String facturaCompra;
 
 	/**
 	 * valor por el cual fue adquirida la montacargas
@@ -120,13 +120,13 @@ public class ActivoFijo {
 	 * foto de la montacargas
 	 */
 	@XmlElement(name = "fotoMontacarga")
-	private Image fotoMontacarga;
+	private String fotoMontacarga;
 
 	/**
 	 * manifiesto de importacion de la montacargas
 	 */
 	@XmlElement(name = "manifiestoDeImportacion")
-	private Image manifiestoDeImportacion;
+	private String manifiestoDeImportacion;
 
 	/**
 	 * Area en sucursal de un cliente a la cual se le encuentra asignada la
@@ -198,14 +198,13 @@ public class ActivoFijo {
 	 * @param fechaFinAlquiler
 	 * @param disponible
 	 */
-	public ActivoFijo(ObjectId id, int numeroInterno, String tipo, String marca, String modelo, String serial,
+	public ActivoFijo( int numeroInterno, String tipo, String marca, String modelo, String serial,
 			double capacidad, int numeroMotor, double alturaMastilRecogido, double alturaMastilExtendido,
-			int numeroSeccionesMastil, String tipoBateria, Date fechaCompra, Image facturaCompra, int valorCompra,
-			Proveedor proveedor, Image fotoMontacarga, Image manifiestoDeImportacion, String areaAlquilerAsignada,
+			int numeroSeccionesMastil, String tipoBateria, Date fechaCompra, String facturaCompra, int valorCompra,
+			Proveedor proveedor, String fotoMontacarga, String manifiestoDeImportacion, String areaAlquilerAsignada,
 			Sucursal sucursalAsignada, Cliente clienteAlquiler, HojaDeVida hojaDeVida, Date fechaInicioAlquiler,
 			Date fechaFinAlquiler, int disponible) {
 		super();
-		this.id = id;
 		this.numeroInterno = numeroInterno;
 		this.tipo = tipo;
 		this.marca = marca;
@@ -413,14 +412,14 @@ public class ActivoFijo {
 	/**
 	 * @return
 	 */
-	public Image getFacturaCompra() {
+	public String getFacturaCompra() {
 		return facturaCompra;
 	}
 
 	/**
 	 * @param facturaCompra
 	 */
-	public void setFacturaCompra(Image facturaCompra) {
+	public void setFacturaCompra(String facturaCompra) {
 		this.facturaCompra = facturaCompra;
 	}
 
@@ -455,28 +454,28 @@ public class ActivoFijo {
 	/**
 	 * @return
 	 */
-	public Image getFotoMontacarga() {
+	public String getFotoMontacarga() {
 		return fotoMontacarga;
 	}
 
 	/**
 	 * @param fotoMontacarga
 	 */
-	public void setFotoMontacarga(Image fotoMontacarga) {
+	public void setFotoMontacarga(String fotoMontacarga) {
 		this.fotoMontacarga = fotoMontacarga;
 	}
 
 	/**
 	 * @return
 	 */
-	public Image getManifiestoDeImportacion() {
+	public String getManifiestoDeImportacion() {
 		return manifiestoDeImportacion;
 	}
 
 	/**
 	 * @param manifiestoDeImportacion
 	 */
-	public void setManifiestoDeImportacion(Image manifiestoDeImportacion) {
+	public void setManifiestoDeImportacion(String manifiestoDeImportacion) {
 		this.manifiestoDeImportacion = manifiestoDeImportacion;
 	}
 

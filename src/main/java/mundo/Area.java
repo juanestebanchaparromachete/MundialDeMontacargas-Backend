@@ -8,14 +8,24 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
+@Entity("Area")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Area {
 
-	
+	@Id
 	@XmlElement(name = "id")
 	private ObjectId id;
+	
+	/**
+	 * numero interno en la empresa  del area 
+	 */
+	@XmlElement(name = "numeroInterno")
+	private int numeroInterno ; 
+	
 	
 	/**
 	 * sucursal del cliente  a la cual se encuentra asociada el area
@@ -55,6 +65,13 @@ public class Area {
 		this.activosFijos = activosFijos;
 	}
 
+	/**
+	 * constructor que utilizara morphia
+	 */
+	public Area()
+	{
+		
+	}
 	/**
 	 * @return
 	 */

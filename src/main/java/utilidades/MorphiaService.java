@@ -21,7 +21,7 @@ public class MorphiaService {
 		
 		//create a new morphia instance
 		this.morphia = new Morphia(); 
-		String databaseName = "foobar_academy";
+		String databaseName = "Mundial_de_Montacargas";
 		this.datastore = morphia.createDatastore(mongoClient, databaseName);
 	}
  

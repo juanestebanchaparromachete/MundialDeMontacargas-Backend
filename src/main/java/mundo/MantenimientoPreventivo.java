@@ -17,4 +17,9 @@ public class MantenimientoPreventivo {
 	
 	@XmlElement(name = "empleadoEncargado")
 	private Usuario empleadoEncargado;
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -17,6 +17,11 @@ public class Informe {
 	
 	@XmlElement(name = "hojaDeVida")
 	private HojaDeVida hojaDeVida;
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

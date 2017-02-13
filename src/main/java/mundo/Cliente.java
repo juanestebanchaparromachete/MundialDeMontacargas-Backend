@@ -148,6 +148,11 @@ public class Cliente {
 		this.activosFijos = activosFijos;
 	}
 
+	
+	public Cliente()
+	{
+		
+	}
 	/**
 	 * @return
 	 */

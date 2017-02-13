@@ -39,6 +39,10 @@ public class Sucursal {
 		this.cliente = cliente;
 	}
 
+	public Sucursal()
+	{
+		
+	}
 	/**
 	 * @return
 	 */

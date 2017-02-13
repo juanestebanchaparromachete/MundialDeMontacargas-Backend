@@ -38,6 +38,10 @@ public class HojaDeVida {
 		this.informes = informes;
 	}
 
+	public HojaDeVida()
+	{
+		
+	}
 	/**
 	 * @return
 	 */
