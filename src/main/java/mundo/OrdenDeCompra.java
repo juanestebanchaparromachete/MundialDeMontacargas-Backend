@@ -9,11 +9,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
+@Entity("OrdenDeCompra")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OrdenDeCompra {
-
+	@Id
 	@XmlElement(name = "id")
 	private ObjectId id;
 	
@@ -129,6 +132,13 @@ public class OrdenDeCompra {
 		this.facturasDeCompra = facturasDeCompra;
 	}
 
+	/**
+	 * 
+	 */
+	public OrdenDeCompra()
+	{
+		
+	}
 	/**
 	 * @return
 	 */

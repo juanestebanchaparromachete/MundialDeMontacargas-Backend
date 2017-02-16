@@ -9,10 +9,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+@Entity("FacturaDeVenta")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FacturaDeVenta {
-
+	@Id
 	@XmlElement(name = "id")
 	private ObjectId id;
 	/**
@@ -111,6 +114,14 @@ public class FacturaDeVenta {
 		this.total = total;
 		this.cantidadItems = cantidadItems;
 		this.items = items;
+	}
+	
+	/**
+	 * 
+	 */
+	public FacturaDeVenta()
+	{
+		
 	}
 
 	/**

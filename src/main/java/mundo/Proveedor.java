@@ -9,16 +9,19 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
 /**
  * @author juanestebanchaparromachete
  *
  */
-
+@Entity("Proveedor")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Proveedor {
 
+	@Id
 	@XmlElement(name = "id")
 	private ObjectId id;
 	

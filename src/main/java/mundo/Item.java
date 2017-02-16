@@ -6,11 +6,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
+@Entity("Item")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Item {
-	
+	@Id
 	@XmlElement(name = "id")
 	private ObjectId id;
 	
@@ -86,6 +89,14 @@ public class Item {
 		this.ordenDeCompra = ordenDeCompra;
 	}
 
+	
+	/**
+	 * 
+	 */
+	public Item()
+	{
+		
+	}
 	/**
 	 * @return
 	 */

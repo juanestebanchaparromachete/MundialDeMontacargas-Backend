@@ -9,11 +9,15 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+
+@Entity("Devolucion")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Devolucion {
 
-	
+	@Id
 	@XmlElement(name = "id")
 	private ObjectId id;
 	/**
@@ -81,6 +85,12 @@ public class Devolucion {
 	}
 
 
+	/**
+	 * 
+	 */
+	public Devolucion(){
+		
+	}
 	/**
 	 * @return
 	 */

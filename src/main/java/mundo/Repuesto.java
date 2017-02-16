@@ -9,12 +9,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.bson.types.ObjectId;
-
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+@Entity("Repuesto")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Repuesto {
 
-
+	@Id
 	@XmlElement(name = "id")
 	private ObjectId id;
 	
@@ -98,6 +100,13 @@ public class Repuesto {
 		this.item = item;
 	}
 
+	/**
+	 * 
+	 */
+	public Repuesto()
+	{
+		
+	}
 	/**
 	 * @return
 	 */
